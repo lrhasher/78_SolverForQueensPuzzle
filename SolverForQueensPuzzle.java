@@ -59,10 +59,11 @@ public class SolverForQueensPuzzle {
 
     private void recordSolutionsStarted() {
         nBoardsConsidered++;
-        if (inProgress.accept()) {
-            solutions.add(inProgress);
+        if(inProgress.lastIsNg()) {
+            //do nothing
         }
-        else if(inProgress.lastIsNg()) {
+        else if (inProgress.accept()) {
+            solutions.add(inProgress);
         }
         else {
             for(int file = 0; file < inProgress.ranks(); file++) {
